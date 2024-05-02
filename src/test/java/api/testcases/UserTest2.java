@@ -6,10 +6,11 @@ import org.testng.Assert;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
 
+import com.github.javafaker.Faker;
+
 import api.endpoints.UserEndpoints2;
 import api.payload.UserPayload;
 import io.restassured.response.Response;
-import net.datafaker.Faker;
 
 public class UserTest2 {
 
@@ -23,8 +24,7 @@ public class UserTest2 {
 		userPayload = new UserPayload();
 
 		userPayload.setId(faker.idNumber().hashCode());
-		userPayload.setUsername(faker.internet().username());
-		userPayload.setFirstName(faker.name().firstName());
+		userPayload.setUsername(faker.name().username());
 		userPayload.setLastName(faker.name().lastName());
 		userPayload.setEmail(faker.internet().safeEmailAddress());
 		userPayload.setPassword(faker.internet().password(5, 10));
